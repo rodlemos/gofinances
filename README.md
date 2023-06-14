@@ -1,7 +1,7 @@
 <!-- Logo -->
 <p align="center">
   <a href="https://github.com/rodlemos/ignite-gofinances">
-    <img src="https://github.com/rodlemos/ignite-gofinances/blob/main/assets/icon.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/rodlemos/gofinances/blob/main/assets/icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">GoFinances</h3>
@@ -42,9 +42,9 @@ the app will return a balance and a monthly graphic of the expenses by category.
 of Rocketseat Ignite React Native course.
 
 <p align="center">
-  <img src="https://github.com/rodlemos/ignite-gofinances/blob/main/src/assets/screen1.jpg"/>
-  <img src="https://github.com/rodlemos/ignite-gofinances/blob/main/src/assets/screen2.jpg"/>
-  <img src="https://github.com/rodlemos/ignite-gofinances/blob/main/src/assets/screen3.jpg"/>
+  <img src="https://github.com/rodlemos/gofinances/blob/main/src/assets/screen1.jpg"/>
+  <img src="https://github.com/rodlemos/gofinances/blob/main/src/assets/screen2.jpg"/>
+  <img src="https://github.com/rodlemos/gofinances/blob/main/src/assets/screen3.jpg"/>
 </p>
 
 ### Built With
