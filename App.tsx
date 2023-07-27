@@ -1,13 +1,13 @@
+import * as Font from "expo-font";
 import {
   Poppins_400Regular,
   Poppins_500Medium,
   Poppins_700Bold,
-  useFonts,
 } from "@expo-google-fonts/poppins";
 import { StatusBar } from "expo-status-bar";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/global/styles/theme";
 import { AuthProvider, useAuth } from "./src/hooks/auth";
@@ -18,22 +18,40 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    Poppins_400Regular,
-    Poppins_500Medium,
-    Poppins_700Bold,
-  });
+  const [appIsReady, setAppIsReady] = useState(false);
 
-  const { userStorageLoading } = useAuth();
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await Font.loadAsync({
+          Poppins_400Regular,
+          Poppins_500Medium,
+          Poppins_700Bold,
+        });
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
 
-  if (fontsLoaded && !userStorageLoading) {
-    SplashScreen.hideAsync();
+    prepare();
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null;
   }
 
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
+        <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
           <StatusBar style="light" />
           <Routes />
         </GestureHandlerRootView>
