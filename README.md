@@ -91,7 +91,7 @@ To run the application install expo client:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To create an entry select the tab "Cadastrar". You must give a name and a value, select a type: income or outcome,
+To create an entry select the tab "Cadastrar". You must give a name and a numeric value, select a type: income or outcome,
 and choose a category from the list then press the buttom to save.
 
 Your entries will be listed in the "Listagem" tab along with the last income, last outcome and balance. 
